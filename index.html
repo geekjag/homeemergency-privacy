@@ -1,68 +1,284 @@
- <!DOCTYPE html>                                             
-  <html>                                                      
-  <head>                                                      
-      <title>Home Emergency - Privacy Policy</title>          
-      <meta charset="UTF-8">                                  
-      <meta name="viewport" content="width=device-width,      
-  initial-scale=1.0">                                         
-      <style>                                                 
-          body { font-family: Arial, sans-serif;
-  max-width: 800px; margin: 0 auto; padding: 20px; }
-          h1 { color: #DC2626; }
-          h2 { color: #333; }
-          p { line-height: 1.6; }
-      </style>                                                
-  </head>                                                     
-  <body>                                                      
-      <h1>Privacy Policy for Home Emergency</h1>              
-      <p><strong>Last updated:</strong> 05th September 2026</p>                                                   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home Emergency — Privacy Policy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy policy for Home Emergency — a local-first emergency alert app. No servers, no trackers, no accounts.">
+    <meta name="theme-color" content="#E8483C">
+    <style>
+        :root {
+            --bg: #F3F5FA;
+            --surface: #FFFFFF;
+            --surface-2: #EBEEF5;
+            --text: #0E1420;
+            --text-2: #5A6474;
+            --text-3: #8A93A5;
+            --accent: #E8483C;
+            --accent-soft: #FFE9E5;
+            --stroke: rgba(14, 20, 32, 0.08);
+            --green: #16A34A;
+            --green-soft: #E7F6EE;
+            --shadow: 0 1px 2px rgba(14, 20, 32, 0.04);
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0D1017;
+                --surface: #161B26;
+                --surface-2: #1E2432;
+                --text: #F3F6FC;
+                --text-2: #98A2B8;
+                --text-3: #6B7689;
+                --accent: #FF6A5B;
+                --accent-soft: #331E1B;
+                --stroke: rgba(255, 255, 255, 0.08);
+                --green: #34D399;
+                --green-soft: #12271D;
+                --shadow: none;
+            }
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0 20px 80px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+        .page { max-width: 720px; margin: 0 auto; }
 
-      <h2>Overview</h2>                                       
-      <p>Home Emergency is designed to create a local
-  emergency alert network between devices on the same
-  WiFi network. We are committed to protecting your
-  privacy.</p>                                                
+        /* Hero */
+        .hero {
+            margin-top: 40px;
+            border-radius: 28px;
+            padding: 32px 28px;
+            background:
+                radial-gradient(120% 140% at 0% 0%, rgba(232, 72, 60, 0.16) 0%, transparent 55%),
+                var(--surface);
+            border: 1px solid var(--stroke);
+            box-shadow: var(--shadow);
+        }
+        .hero-top { display: flex; align-items: center; gap: 16px; }
+        .hero-icon {
+            width: 56px; height: 56px; flex: none;
+            border-radius: 50%;
+            background: var(--accent-soft);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .hero-icon svg { width: 28px; height: 28px; fill: var(--accent); }
+        .hero h1 { font-size: 28px; line-height: 1.15; margin: 0; letter-spacing: -0.02em; }
+        .hero p { margin: 4px 0 0; color: var(--text-2); font-size: 15px; }
+        .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+        .badge {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: var(--surface-2);
+            border: 1px solid var(--stroke);
+            color: var(--text);
+            font-size: 13px; font-weight: 600;
+            padding: 8px 14px; border-radius: 999px;
+        }
+        .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+        .updated { color: var(--text-3); font-size: 13px; margin-top: 18px; }
 
-      <h2>Data Collection</h2>                                
-      <p>This app does not collect, store, or transmit        
-  any personal data to external servers. All
-  communication happens locally on your WiFi network.</p>     
+        /* Section cards */
+        section.card {
+            background: var(--surface);
+            border: 1px solid var(--stroke);
+            border-radius: 24px;
+            padding: 26px 26px 24px;
+            margin-top: 20px;
+            box-shadow: var(--shadow);
+        }
+        .card-head { display: flex; align-items: center; gap: 13px; margin-bottom: 12px; }
+        .card-icon {
+            width: 42px; height: 42px; flex: none;
+            border-radius: 50%;
+            background: var(--accent-soft);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 19px;
+        }
+        h2 { font-size: 19px; margin: 0; letter-spacing: -0.01em; }
+        section p { margin: 0 0 12px; color: var(--text); font-size: 15px; }
+        section p:last-child { margin-bottom: 0; }
+        .muted { color: var(--text-2); }
 
-      <h2>Information We Use Locally</h2>                     
-      <ul>                                                    
-          <li>Device name (set by you for
-  identification)</li>                                        
-          <li>Local IP address (for network
-  communication)</li>                                         
-          <li>Emergency messages (sent only to local
-  network devices)</li>                                       
-      </ul>                                                   
+        /* Lists */
+        ul.clean { list-style: none; padding: 0; margin: 0; }
+        ul.clean li {
+            padding: 12px 0;
+            border-top: 1px solid var(--stroke);
+            font-size: 15px;
+        }
+        ul.clean li:first-child { border-top: none; padding-top: 2px; }
+        ul.clean li:last-child { padding-bottom: 0; }
+        ul.clean b { display: block; margin-bottom: 2px; }
+        ul.clean .why { color: var(--text-2); font-size: 14px; }
 
-      <h2>Permissions Used</h2>                               
-      <ul>                                                    
-          <li><strong>Network Access:</strong> To
-  communicate with devices on your local WiFi
-  network</li>                                                
-          <li><strong>Notifications:</strong> To display      
-  emergency alerts</li>                                       
-          <li><strong>System Overlay:</strong> To show        
-  emergency alerts on screen</li>                             
-          <li><strong>Boot Receiver:</strong> To
-  automatically start the emergency service</li>              
-      </ul>                                                   
+        /* Permission pills */
+        .pill {
+            display: inline-block;
+            font-size: 12px; font-weight: 700;
+            letter-spacing: 0.04em;
+            color: var(--accent);
+            background: var(--accent-soft);
+            border-radius: 999px;
+            padding: 2px 10px;
+            margin-left: 8px;
+            vertical-align: 1px;
+        }
+        .pill.green { color: var(--green); background: var(--green-soft); }
 
-      <h2>Data Sharing</h2>                                   
-      <p>No data is shared with third parties, external       
-  servers, or cloud services. All communication is local      
-  to your network.</p>                                        
+        /* Callout */
+        .callout {
+            margin-top: 20px;
+            border-radius: 20px;
+            padding: 18px 20px;
+            background: var(--green-soft);
+            border: 1px solid rgba(22, 163, 74, 0.25);
+            font-size: 15px;
+        }
+        .callout b { color: var(--green); }
 
-      <h2>Data Storage</h2>                                   
-      <p>The app only stores your device name and app
-  preferences locally on your device. No data is backed       
-  up to cloud services.</p>                                   
+        /* Footer */
+        footer {
+            text-align: center;
+            color: var(--text-3);
+            font-size: 13px;
+            margin-top: 36px;
+        }
+        footer a { color: var(--accent); text-decoration: none; font-weight: 600; }
+        @media (max-width: 480px) {
+            .hero { padding: 24px 20px; margin-top: 24px; border-radius: 24px; }
+            .hero h1 { font-size: 23px; }
+            section.card { padding: 20px 18px; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
 
-      <h2>Contact</h2>                                        
-      <p>If you have questions about this privacy policy,     
-   please contact us at: [geekjag@gmail.com]</p>                     
-  </body>                                                     
-  </html>                                                     
+    <div class="hero">
+        <div class="hero-top">
+            <div class="hero-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12,1L3,5v6c0,5.55 3.84,10.74 9,12 5.16,-1.26 9,-6.45 9,-12V5L12,1zM10,17l-4,-4 1.41,-1.41L10,14.17l6.59,-6.59L18,9l-8,8z"/></svg>
+            </div>
+            <div>
+                <h1>Home Emergency</h1>
+                <p>Privacy Policy</p>
+            </div>
+        </div>
+        <div class="hero-badges">
+            <span class="badge"><span class="dot"></span>100% local</span>
+            <span class="badge">No servers</span>
+            <span class="badge">No trackers</span>
+            <span class="badge">No account needed</span>
+        </div>
+        <div class="updated">Last updated: 05 September 2026 · App version 2.6.0</div>
+    </div>
+
+    <section class="card">
+        <div class="card-head">
+            <div class="card-icon">🏠</div>
+            <h2>What the app does</h2>
+        </div>
+        <p>Home Emergency turns the phones in your home into a private alert network. When someone triggers an alert — Medical, Fire, Security, or General — every other device on the same Wi-Fi shows it full-screen immediately, and tells the sender when the alert was delivered, accepted, or dismissed.</p>
+        <p class="muted">Everything happens between your own devices on your own Wi-Fi. The app never needs the internet to work.</p>
+    </section>
+
+    <section class="card">
+        <div class="card-head">
+            <div class="card-icon">🚫</div>
+            <h2>Data we collect</h2>
+        </div>
+        <p><b>None.</b> The app contains no analytics, no advertising SDKs, no crash reporters, and no cloud backend. There is nothing uploaded, and therefore nothing for us to collect, sell, or share.</p>
+    </section>
+
+    <section class="card">
+        <div class="card-head">
+            <div class="card-icon">📱</div>
+            <h2>Information used on your device</h2>
+        </div>
+        <ul class="clean">
+            <li>
+                <b>Your name</b>
+                <span class="why">You choose it on first launch; it is shown on your alerts so family members know who needs help. Stored only on your phone.</span>
+            </li>
+            <li>
+                <b>Device identifier</b>
+                <span class="why">A random Android device ID is used to tell your devices apart on the network. It never leaves your Wi-Fi.</span>
+            </li>
+            <li>
+                <b>Local IP address</b>
+                <span class="why">Used only to deliver alerts between devices on the same network. Never transmitted anywhere else.</span>
+            </li>
+            <li>
+                <b>Alert messages &amp; acknowledgements</b>
+                <span class="why">Your custom message text and delivery/accept/dismiss responses travel directly to your other devices — nothing in between.</span>
+            </li>
+            <li>
+                <b>Network passcode <span class="pill">optional</span></b>
+                <span class="why">If you set one, it is shared only with the devices you configure, so alerts from unknown devices can be ignored.</span>
+            </li>
+        </ul>
+    </section>
+
+    <section class="card">
+        <div class="card-head">
+            <div class="card-icon">🔐</div>
+            <h2>Permissions the app uses</h2>
+        </div>
+        <ul class="clean">
+            <li>
+                <b>Network access</b>
+                <span class="why">Sends alerts between your devices over your local Wi-Fi.</span>
+            </li>
+            <li>
+                <b>Notifications &amp; full-screen alerts</b>
+                <span class="why">Shows emergency alerts loudly and clearly — even over the lock screen.</span>
+            </li>
+            <li>
+                <b>Display over other apps</b>
+                <span class="why">Makes the alert screen appear instantly when it matters most.</span>
+            </li>
+            <li>
+                <b>Foreground service</b>
+                <span class="why">Keeps a lightweight listener alive so your phone never misses an alert. It runs on your device only.</span>
+            </li>
+            <li>
+                <b>Run at startup</b>
+                <span class="why">Re-enables listening after your phone reboots.</span>
+            </li>
+            <li>
+                <b>Battery optimisation exemption <span class="pill">optional</span></b>
+                <span class="why">If you allow it, alerts keep working while the phone is idle or locked. You can decline and the app still works.</span>
+            </li>
+            <li>
+                <b>Wi-Fi multicast reception</b>
+                <span class="why">Lets your phone discover the other devices in your home.</span>
+            </li>
+        </ul>
+    </section>
+
+    <section class="card">
+        <div class="card-head">
+            <div class="card-icon">☁️</div>
+            <h2>Data sharing &amp; storage</h2>
+        </div>
+        <p>No data is shared with third parties, advertisers, or any external server — there are none in the app. Your name, messages, passcode, and preferences are stored only on your device and are never backed up to any cloud.</p>
+        <p class="muted">Uninstalling the app removes all of it, permanently and immediately.</p>
+    </section>
+
+    <div class="callout">
+        <b>The short version:</b> your alerts stay inside your home, on your Wi-Fi, between your devices. That's the whole design.
+    </div>
+
+    <footer>
+        Questions about this policy? Write to
+        <a href="mailto:geekjag@gmail.com">geekjag@gmail.com</a>
+    </footer>
+
+</div>
+</body>
+</html>
